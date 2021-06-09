@@ -1,7 +1,9 @@
 # Unix-Programming-Learning
 
 **All programs in this repo are from book *Understanding Unix/Linux Programming* written by Pro. Bruce Molay**
-In order to learn Unix programming, I rewrote the programs already in the book by myself.
+
+
+And in order to learn Unix programming, I **rewrote the programs** in the book by myself. This project includes how to implement **simple system commands** in the Unix environment, learn **Shell** programming, understand **how Unix works** and use **Unix library** programming.
 
 ## 1. more
 
