@@ -7,3 +7,9 @@ And in order to learn Unix programming, I **rewrote the programs** in the book b
 
 ## 1. more
 ![more](img/1_more_1.png)
+## 2. who 
+find utmp structure by 
+```shell
+man 5 utmp
+```
+![man 5 utmp](img/2_who_utmp.png)
