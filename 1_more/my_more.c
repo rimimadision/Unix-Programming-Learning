@@ -7,7 +7,7 @@
 #define LINELEN 512
 
 void do_more(FILE* fp);
-int see_more();
+int see_more(FILE* cmd);
 
 int main(int argc, char* argv[])
 {
@@ -41,12 +41,16 @@ void do_more(FILE* fp)
 	char line[LINELEN];
 	int line_cnt = 0;
 	int reply;
+	FILE* fp_tty = fopen("/dev/tty", "r");
+
+	if(fp_tty == NULL)
+		exit(1);
 
 	while(fgets(line, LINELEN, fp))
 	{
 		if(line_cnt == PAGELEN)
 		{
-			int reply = see_more();
+			reply = see_more(fp_tty);
 			if(reply == 0)
 			{
 				break;
@@ -62,7 +66,7 @@ void do_more(FILE* fp)
 	}
 }
 
-int see_more()
+int see_more(FILE* cmd)
 /*
  * print message, wait for response, return # of lines to advance
  * q - 0, space - one more page, CR - one more line
@@ -70,7 +74,7 @@ int see_more()
 {
 	int c;
 	printf("\033[7m more? \033[m");
-	while((c = getchar()) != EOF)
+	while((c = getc(cmd)) != EOF)
 	{
 		if(c == 'q')
 			return 0;
